@@ -1,0 +1,8 @@
+<mat-divider class="divider"></mat-divider>
+
+<div class="dialog-actions">
+    <button mat-button color="primary" (click)="cancel.emit()">Cancel</button>
+    <button mat-flat-button extended color="primary" (click)="action.emit()">
+        {{actionLabel}}
+    </button>
+</div>

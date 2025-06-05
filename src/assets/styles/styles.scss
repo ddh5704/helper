@@ -1,0 +1,42 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    // font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.unselectable {
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+mat-dialog-container {
+    border: 5px solid transparent;
+    border-radius: 15px !important;
+    padding: 0px !important;
+}
+
+.form-field {
+    font-size: 12px;
+}
+
+
+:root,
+:host {
+    @include mat.button-overrides((filled-container-height: 40px,
+            filled-label-text-size: 16px,
+            text-label-text-size: 16px,
+            filled-container-shape: 6px,
+            text-container-shape: 6px));
+}

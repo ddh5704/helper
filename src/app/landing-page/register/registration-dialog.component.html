@@ -1,0 +1,47 @@
+<app-dialog-title title="Registration Form"></app-dialog-title>
+<form [formGroup]="registrationForm" class="form-container">
+
+    <mat-form-field appearance="outline" class="full-width form-field">
+        <mat-label>Email</mat-label>
+        <input matInput #emailInput type="email" formControlName="email" placeholder="ex. abc@123.com" />
+        <mat-error *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+            Valid email is required
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width form-field">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" />
+        <mat-error *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+            Password is required
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="primary" appearance="outline" class="full-width form-field">
+        <mat-label>Reenter Password</mat-label>
+        <input matInput type="password" formControlName="confirmPassword" />
+        <mat-error
+            *ngIf="registrationForm.hasError('passwordMismatch') && registrationForm.get('confirmPassword')?.touched">
+            Passwords do not match
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width form-field">
+        <mat-label>Phone</mat-label>
+        <input matInput type="text" formControlName="phone" mask="(000) 000-0000" />
+        <mat-error *ngIf="registrationForm.get('phone')?.invalid && registrationForm.get('phone')?.touched">
+            Phone is required
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Zip code</mat-label>
+        <input matInput formControlName="zip" mask="00000" />
+        <mat-error *ngIf="registrationForm.get('zip')?.invalid && registrationForm.get('zip')?.touched">
+            Zip is required
+        </mat-error>
+    </mat-form-field>
+
+    <app-dialog-actions actionLabel="Register" (cancel)="onCancel()" (action)="onSubmit()"></app-dialog-actions>
+
+</form>
